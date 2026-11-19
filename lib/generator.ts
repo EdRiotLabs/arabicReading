@@ -1,4 +1,4 @@
-import { LETTERS, HARAKAT, LEVELS } from './arabic.mjs';
+import { LETTERS, HARAKAT, LEVELS } from './arabic';
 import type { Item, Level } from './types';
 
 const rnd = (n: number) => Math.floor(Math.random() * n);
@@ -10,26 +10,21 @@ export function makeItem(level: Level): Item {
   if (level === 1) {
     const bare = L.bare && Math.random() < 0.25;
     if (bare) {
-      const ch = LETTERS[li];
-      return { id: `l1_${li}_bare`, text: ch, level, rule: 'bare' };
+      return { id: `l1_${li}_bare`, text: LETTERS[li], level, rule: 'bare' };
     }
     const h = L.harakat[rnd(L.harakat.length)];
-    return {
-      id: `l1_${li}_${h}`,
-      text: LETTERS[li] + HARAKAT[h as keyof typeof HARAKAT],
-      level, rule: h,
-    };
+    return { id: `l1_${li}_${h}`, text: LETTERS[li] + HARAKAT[h], level, rule: h };
   }
 
   const lj = rnd(LETTERS.length);
   const h1 = L.harakat[rnd(L.harakat.length)];
-  const h2 = (L as any).second[rnd((L as any).second.length)];
+  const pool = L.second || L.harakat;
+  const h2 = pool[rnd(pool.length)];
   return {
     id: `l${level}_${li}_${h1}_${lj}_${h2}`,
-    text:
-      LETTERS[li] + HARAKAT[h1 as keyof typeof HARAKAT] +
-      LETTERS[lj] + HARAKAT[h2 as keyof typeof HARAKAT],
-    level, rule: `${h1}+${h2}`,
+    text: LETTERS[li] + HARAKAT[h1] + LETTERS[lj] + HARAKAT[h2],
+    level,
+    rule: `${h1}+${h2}`,
   };
 }
 
