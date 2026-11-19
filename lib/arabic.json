@@ -1,0 +1,28 @@
+{
+  "LETTERS": ["ا","ب","ت","ث","ج","ح","خ","د","ذ","ر","ز","س","ش","ص","ض","ط","ظ","ع","غ","ف","ق","ك","ل","م","ن","و","ه","ي","ء"],
+  "HARAKAT": {
+    "fatha": "\u064E",
+    "kasra": "\u0650",
+    "damma": "\u064F",
+    "sukoon": "\u0652",
+    "shadda": "\u0651",
+    "fathatan": "\u064B",
+    "kasratan": "\u064D",
+    "dammatan": "\u064C"
+  },
+  "HARAKA_LABEL": {
+    "fatha": "Zabar",
+    "kasra": "Zer",
+    "damma": "Pesh",
+    "sukoon": "Jazm",
+    "shadda": "Tashdeed",
+    "fathatan": "Tanween Zabar",
+    "kasratan": "Tanween Zer",
+    "dammatan": "Tanween Pesh"
+  },
+  "LEVELS": {
+    "1": { "name": "Single letter + haraka", "harakat": ["fatha","kasra","damma"], "bare": true },
+    "2": { "name": "Two letters joined", "harakat": ["fatha","kasra","damma"], "second": ["fatha","kasra","damma","sukoon"] },
+    "3": { "name": "Two letters + shadda/jazm", "harakat": ["fatha","kasra","damma","sukoon","shadda"], "second": ["fatha","kasra","damma","sukoon","shadda"] }
+  }
+}
