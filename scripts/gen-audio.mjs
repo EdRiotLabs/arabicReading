@@ -2,10 +2,16 @@
 // Generates drill audio using Edge TTS (ar-SA-ZariyahNeural).
 // Prereqs: pip install edge-tts  (+ ffmpeg on PATH for transcode)
 // Usage: node scripts/gen-audio.mjs --level 1
+import { readFileSync } from 'node:fs';
 import { execFile } from 'node:child_process';
 import { mkdir, writeFile } from 'node:fs/promises';
 import { promisify } from 'node:util';
-import { LETTERS, HARAKAT, LEVELS } from '../lib/arabic.mjs';
+
+const run = promisify(execFile);
+const here = new URL('.', import.meta.url);
+const { LETTERS, HARAKAT, LEVELS } = JSON.parse(
+  readFileSync(new URL('../lib/arabic.json', here), 'utf8'),
+);
 
 const run = promisify(execFile);
 const VOICE = 'ar-SA-ZariyahNeural';
