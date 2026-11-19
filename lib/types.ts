@@ -1,9 +1,9 @@
-export type Level = 1 | 2 | 3;
+export type { Level } from './arabic';
 
 export interface Item {
   id: string;
   text: string;
-  level: Level;
+  level: 1 | 2 | 3;
   rule: string;
 }
 
