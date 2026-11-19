@@ -1,7 +1,7 @@
 'use client';
 import { useState, useEffect } from 'react';
 import { initAudio } from '@/lib/audio';
-import { LEVELS } from '@/lib/arabic.mjs';
+import { LEVELS } from '@/lib/arabic';
 import { Learn } from './Learn';
 import { Drill } from './Drill';
 import { Practice } from './Practice';
