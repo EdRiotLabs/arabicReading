@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import { play } from '@/lib/audio';
 import { makeItem } from '@/lib/generator';
-import { HARAKA_LABEL } from '@/lib/arabic.mjs';
+import { HARAKA_LABEL } from '@/lib/arabic';
 import type { Level } from '@/lib/types';
 
 export function Learn({ level }: { level: Level }) {
